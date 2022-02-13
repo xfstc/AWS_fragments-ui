@@ -1,13 +1,14 @@
 // src/app.js
 
 import { Auth, getUser } from "./auth";
-import { getUserFragments } from "./api";
+import { getUserFragments, postUserFragments } from "./api";
 
 async function init() {
   // Get our UI elements
   const userSection = document.querySelector("#user");
   const loginBtn = document.querySelector("#login");
   const logoutBtn = document.querySelector("#logout");
+  const sendPost = document.querySelector("#sendPost");
 
   // Wire up event handlers to deal with login and logout.
   loginBtn.onclick = () => {
@@ -28,6 +29,13 @@ async function init() {
     logoutBtn.disabled = true;
     return;
   }
+
+  sendPost.onclick =  () => {
+    postUserFragments(user, "This is a fragment.");
+
+    
+    
+  };
 
   // Log the user info for debugging purposes
   console.log({ user });
