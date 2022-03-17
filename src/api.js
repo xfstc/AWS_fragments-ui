@@ -11,7 +11,7 @@ const apiUrl = process.env.API_URL;
 export async function getUserFragments(user) {
   console.log("Requesting user fragments data...");
   try {
-    const res = await fetch(`${apiUrl}/v1/fragments`, {
+    const res = await fetch(`${apiUrl}/v1/fragments?expand=1`, {
       headers: {
         // Include the user's ID Token in the request so we're authorized
         Authorization: `Bearer ${user.idToken}`,
@@ -27,13 +27,12 @@ export async function getUserFragments(user) {
   }
 }
 
-export async function postUserFragments(user, fragment) {
-  console.log(fragment);
+export async function postUserFragments(user, fragment,type) {
   try {
     const res = await fetch(`${apiUrl}/v1/fragments`, {
       method: "POST",
       headers: {
-        "Content-Type": "text/plain",
+        "Content-Type": type,
         Authorization: `Bearer ${user.idToken}`,
       },
       body: fragment,

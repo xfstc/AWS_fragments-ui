@@ -15,8 +15,24 @@
     </section>
     <section hidden id="user">
       <h2>Hello <span class="username"></span>!</h2>
+      <br /><br />
+      <form id="myForm">
+        <label for="type">Select a type:</label>
+        <select id="type" name="type">
+          <option value="text/plain">text/plain</option>
+          <option value="text/markdown">text/markdown</option>
+          <option value="text/html">text/html</option>
+          <option value="application/json">application/json</option>
+        </select>
+        <br /><br />
+        <label for="content">Enter content:</label>
+        <input type="text" id="content" name="content" />
+        <br /><br />
+        <input type="submit" />
+      </form>
     </section>
-    <br><br>
-    <button id="sendPost">click to send post!</button>
+    <br /><br />
+
+    <button id="getFragments">Click to get all fragments</button>
   </body>
 </html>

@@ -1,7 +1,7 @@
 // src/app.js
 
-import { Auth, getUser } from "./auth";
-import { getUserFragments, postUserFragments } from "./api";
+import { Auth, getUser } from "./auth.js";
+import { getUserFragments, postUserFragments } from "./api.js";
 
 async function init() {
   // Get our UI elements
@@ -30,12 +30,19 @@ async function init() {
     return;
   }
 
-  sendPost.onclick =  () => {
-    postUserFragments(user, "This is a fragment.");
+  const form = document.getElementById("myForm");
+  form.onsubmit = submit;
+  function submit(event) {
+    var type = document.getElementById("type").value;
+    var fragment = document.getElementById("content").value;
 
-    
-    
-  };
+    postUserFragments(user, fragment, type);
+    event.preventDefault();
+  }
+
+  getFragments.onclick=()=>{
+    getUserFragments(user);
+  }
 
   // Log the user info for debugging purposes
   console.log({ user });
