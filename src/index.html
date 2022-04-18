@@ -23,16 +23,52 @@
           <option value="text/markdown">text/markdown</option>
           <option value="text/html">text/html</option>
           <option value="application/json">application/json</option>
+          <option value="image/png">image/png</option>
+          <option value="image/jpeg">image/jpeg</option>
+          <option value="image/webp">image/webp</option>
+          <option value="image/gif">image/gif</option>
         </select>
         <br /><br />
         <label for="content">Enter content:</label>
         <input type="text" id="content" name="content" />
         <br /><br />
+        <label for="image">Upload File</label>
+        <input type="file" id="image" name="image" />
+        <br /><br />
+
         <input type="submit" />
       </form>
-    </section>
-    <br /><br />
+      <br /><br />
 
-    <button id="getFragments">Click to get all fragments</button>
+      <button id="getFragments">Click to get all fragments</button>
+      <br /><br />
+
+      <form id="editForm">
+        <label for="fragmentID">Enter the fragment ID you want to edit:</label>
+        <input type="text" id="fragmentID" name="fragmentID" />
+        <label for="editType">Enter the type:</label>
+        <input type="text" id="editType" name="editType" />
+        <label for="editContent">Enter the content:</label>
+        <input type="text" id="editContent" name="editContent" />
+        <label for="editFile">Or Upload File</label>
+        <input type="file" id="editFile" name="editFile" />
+        <br /><br />
+        <input type="submit" value="Edit" />
+      </form>
+      <br /><br />
+      <form id="convertForm">
+        <label for="convertID">Enter the fragment ID want to convert:</label>
+        <input type="text" name="convertID" id="convertID">
+        <label for="contentType">Enter current type:</label>
+        <input type="text" name="contentType" id="contentType">
+        <label for="convertEXT">Enter the extension:</label>
+        <input type="text" name="convertEXT" id="convertEXT">
+        <br /><br />
+
+        <input type="submit" />
+      </form>
+      <div id="container"></div>
+      <div id="converted"></div>
+    </section>
   </body>
 </html>
